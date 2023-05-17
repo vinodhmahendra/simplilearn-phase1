@@ -19,3 +19,13 @@ Method Overriding
 Method Signature
 Access Modifier
 Return  Type
+
+Polymorphism
+-
+customer.setAccount(checkingAccount);
+
+// account is a polymorphic parameter
+public void setAccount(Account account) {
+		this.account = account;
+}
+-

@@ -6,18 +6,36 @@ public class TestBanking {
 
 	//client code
 	public static void main(String[] args) {
-		System.out.println("Welcome to Banking Aapplication!");
+		System.out.println("Welcome to Banking APP!");
 	
-		Account account ;
-		account = new Account(500.00);
-	
-		account.deposit(1000.00);
+		//create a customer
+		Customer customer  = new Customer ("Bhavya","keshavulu");
 		
-		account.withdraw(200.00);
+		//create a CheckingAccount with initial balance of 500.00
+		CheckingAccount checkingAccount = new CheckingAccount(500.00, 50.0);
 		
-//		account.balance = -5000; private access
+		customer.setAccount(checkingAccount);
 		
-		System.out.println("The Final Balance : " + account.getBalance());
+		Account account;
+		
+		account = customer.getAccount();
+		
+		account.deposit(200.00);
+		account.withdraw(150.00);
+		
+		System.out.println("Customer [" + customer.getLastName() + " , "+ customer.getFirstName()+"]");
+		System.out.print("Final Balance In Checking Account : " + account.getBalance());
+		SavingsAccount savingsAccount = new SavingsAccount(500.00, 3.0);
+		customer.setAccount(savingsAccount);
+		
+		account = customer.getAccount();
+		account.deposit(200.00);
+		savingsAccount.addInterest();
+		System.out.println("Customer [" + customer.getLastName() + " , "+ customer.getFirstName()+"]");
+		System.out.print("Final Balance In Savings Account : " + account.getBalance());
+		
+		
+		
 
 	}
 
